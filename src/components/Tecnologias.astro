@@ -1,0 +1,34 @@
+---
+import Tecnos_icons from "./Tecnos_icons.astro";
+import Html from '../icons/Tecnologias/Stack/Html.astro';
+import Css from '../icons/Tecnologias/Stack/Css.astro';
+import Js from '../icons/Tecnologias/Stack/Js.astro';
+import Mysql from '../icons/Tecnologias/Stack/Mysql.astro';
+import Git from '../icons/Tecnologias/Herramientas/Git.astro';
+import Tecno_icon from '../icons/Titulos/Tecno_icon.astro';
+---
+
+<div class="flex flex-col items-center">
+  <h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4">
+    <Tecno_icon class="w-12 h-12" /> Tecnologías
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 p-4">
+    <div>
+      <h2 class="text-2xl opacity-80 mb-6 text-center">Stack Tecnológico</h2>
+      <nav class="flex flex-wrap justify-center gap-4">
+        <Tecnos_icons title="HTML"><Html class="w-12 h-12" /></Tecnos_icons>
+        <Tecnos_icons title="CSS"><Css class="w-12 h-12" /></Tecnos_icons>
+        <Tecnos_icons title="JavaScript"><Js class="w-12 h-12" /></Tecnos_icons>
+        <Tecnos_icons title="MySQL"><Mysql class="w-12 h-12" /></Tecnos_icons>
+      </nav>
+    </div>
+    
+    <div>
+      <h2 class="text-2xl opacity-80 mb-6 text-center">Herramientas</h2>
+      <nav class="flex flex-wrap justify-center gap-4">
+        <Tecnos_icons title="Git"><Git class="w-12 h-12" /></Tecnos_icons>
+      </nav>
+    </div>
+  </div>
+</div>
