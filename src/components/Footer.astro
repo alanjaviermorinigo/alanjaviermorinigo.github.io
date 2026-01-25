@@ -1,24 +1,40 @@
 ---
+import Linkedin from "../icons/Social/Linkedin.astro"
 import Github from "../icons/Social/Github.astro"
+import GmailSimple from "../icons/Social/GmailSimple.astro";
 ---
 
 <footer class="opacity-80 m-4 mt-8 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center">
-    <div class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"> 
-        <span class="text-sm sm:text-center flex items-center">
-            <a href="https://github.com/alanjaviermorinigo/" target="_blank" 
-            rel="noopener noreferrer" class="hover:underline flex items-center ml-2">
-                <Github class="size-4 md:size-6 mr-2"/>
-                Alan Javier Morinigo
-            </a>. 
-        </span> 
+    <div class="rounded-lg w-full max-w-screen-xl mx-auto grid grid-cols-3 items-center py-4 text-sm">
+  
+      <a href="https://www.linkedin.com/in/alanjaviermorinigo/" target="_blank" rel="noopener noreferrer" class="hover:underline flex items-center gap-2 transition justify-self-start">
+        <Linkedin class="size-4 md:size-6"/>
+            LinkedIn
+      </a>
+      
+      <a href="#" onclick="event.preventDefault();
+        const email = 'alan'+'jmg0'+'@gmail.com';
 
-        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"> 
-            <li> 
-                <a href="#sobremi" class="hover:underline me-4 md:me-6">Sobre mí</a> 
-            </li> 
-            <li> 
-                <a id="contacto" href="#sobremi" class="hover:underline">Contacto</a> 
-            </li> 
-        </ul> 
-    </div> 
-</footer>
+        try {
+        navigator.clipboard.writeText(email);
+        } catch (e) {}
+        const msg = this.querySelector('.copied-msg');
+        msg.classList.remove('hidden');
+        setTimeout(() => {
+        msg.classList.add('hidden');}, 1500);"
+        class="relative hover:underline flex items-center gap-2 transition justify-self-center">
+      <GmailSimple class="size-5 md:size-6"/>
+        Gmail
+      <span
+        class="copied-msg hidden absolute left-full ml-2 top-1/2 -translate-y-1/2
+           text-xs text-green-500 whitespace-nowrap pointer-events-none">
+        ✔ Copiado
+      </span>
+      </a>
+  
+      <a href="https://github.com/alanjaviermorinigo/" target="_blank" rel="noopener noreferrer" class="hover:underline flex items-center gap-2 transition justify-self-end">
+        <Github class="size-4 md:size-6"/>
+            GitHub
+      </a>
+    </div>
+  </footer>
