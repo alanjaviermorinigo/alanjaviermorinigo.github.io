@@ -21,30 +21,40 @@ import CiCd from '../icons/Tecnologias/Herramientas/CiCd.astro';
 import Kubernetes from '../icons/Tecnologias/Herramientas/Kubernetes.astro';
 import Linux from '../icons/Tecnologias/Herramientas/Linux.astro';
 
-const stack = [
+const backend = [
   { title: "Java", icon: Java },
   { title: "Spring Boot", icon: Spring },
   { title: "REST APIs", icon: RestApis },
   { title: "Spring Security", icon: SpringSecurity },
   { title: "JWT", icon: Jwt },
   { title: "JPA/Hibernate", icon: JpaHibernate },
-  { title: "MySQL", icon: Mysql },
-  { title: "Swagger/OpenAPI", icon: Swagger },
+];
+
+const frontend = [
   { title: "HTML", icon: Html },
   { title: "CSS", icon: Css },
   { title: "JavaScript", icon: Js },
 ];
 
-const tools = [
+const database = [
+{ title: "MySQL", icon: Mysql },
+];
+
+const devops = [
   { title: "Linux", icon: Linux },
-  { title: "Maven", icon: Maven },
   { title: "Docker", icon: Docker },
   { title: "CI/CD", icon: CiCd },
   { title: "Kubernetes", icon: Kubernetes },
+];
+
+const controlAndBuild = [
+  { title: "Maven", icon: Maven },
+  { title: "Swagger/OpenAPI", icon: Swagger },
   { title: "Git", icon: Git },
   { title: "GitHub", icon: GitHub },
   { title: "GitLab", icon: GitLab },
 ];
+
 ---
 
 <div class="flex flex-col items-center">
@@ -55,9 +65,9 @@ const tools = [
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 p-4">
     <div>
-      <h3 class="text-2xl opacity-80 mb-6 text-center">Stack Tecnológico</h3>
+      <h3 class="text-2xl opacity-80 mb-6 text-center">Backend</h3>
       <nav class="grid grid-cols-3 gap-4 place-items-center w-full">
-        {stack.map(({ title, icon: Icon }) => (
+        {backend.map(({ title, icon: Icon }) => (
           <Tecnos_icons title={title} size="md">
             <Icon/>
           </Tecnos_icons>
@@ -66,14 +76,48 @@ const tools = [
     </div>
 
     <div>
-      <h3 class="text-2xl opacity-80 mb-6 text-center">Herramientas</h3>
+      <h3 class="text-2xl opacity-80 mb-6 text-center">Frontend</h3>
       <nav class="grid grid-cols-3 gap-4 place-items-center w-full">
-        {tools.map(({ title, icon: Icon }) => (
+        {frontend.map(({ title, icon: Icon }) => (
           <Tecnos_icons title={title} size="md">
             <Icon/>
           </Tecnos_icons>
         ))}
       </nav>
     </div>
+
+    <div>
+      <h3 class="text-2xl opacity-80 mb-6 text-center">Base de Datos</h3>
+      <nav class="grid grid-cols-3 gap-4 place-items-center w-full">
+        {database.map(({ title, icon: Icon }) => (
+          <Tecnos_icons title={title} size="md">
+            <Icon/>
+          </Tecnos_icons>
+        ))}
+      </nav>
+    </div>
+
+    <div>
+      <h3 class="text-2xl opacity-80 mb-6 text-center">DevOps / Infra</h3>
+      <nav class="grid grid-cols-3 gap-4 place-items-center w-full">
+        {devops.map(({ title, icon: Icon }) => (
+          <Tecnos_icons title={title} size="md">
+            <Icon/>
+          </Tecnos_icons>
+        ))}
+      </nav>
+    </div>
+
+    <div>
+      <h3 class="text-2xl opacity-80 mb-6 text-center">Control & Build</h3>
+      <nav class="grid grid-cols-3 gap-4 place-items-center w-full">
+        {controlAndBuild.map(({ title, icon: Icon }) => (
+          <Tecnos_icons title={title} size="md">
+            <Icon/>
+          </Tecnos_icons>
+        ))}
+      </nav>
+    </div>
+
   </div>
 </div>
