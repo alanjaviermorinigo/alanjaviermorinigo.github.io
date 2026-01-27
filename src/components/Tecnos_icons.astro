@@ -1,9 +1,36 @@
+---
+const {
+  title,
+  layout = "vertical",
+  size = "md",
+} = Astro.props;
+
+const layouts = {
+  vertical: "flex-col text-center",
+  horizontal: "flex-row text-left",
+};
+
+const sizes = {
+  sm: {
+    container: "gap-1 w-16",
+    text: "text-xs",
+    icon: "w-4 h-4",
+  },
+  md: {
+    container: "gap-2 w-24",
+    text: "text-xs",
+    icon: "w-12 h-12",
+  },
+};
+---
 
 <span
-class="rounded-full flex flex-col justify-center items-center text-center gap-y-2 py-2 px-4 hover:scale-110 transition w-24 min-w-[96px]"
-{...Astro.props}
->
-<slot/>
-<span class="text-xs opacity-80" break-words>{Astro.props.title}</span>
-</span>
+  class={`flex items-center justify-center ${layouts[layout]} ${sizes[size].container} hover:scale-110 transition`}>
+  <span class={`${sizes[size].icon} [&>svg]:w-full [&>svg]:h-full`}>
+    <slot />
+  </span>
 
+  <span class={`${sizes[size].text} opacity-80 leading-tight`}>
+    {title}
+  </span>
+</span>

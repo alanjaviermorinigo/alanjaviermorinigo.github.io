@@ -1,26 +1,34 @@
 ---
-import Html from "../icons/Tecnologias/Stack/Html.astro";
-import Css from "../icons/Tecnologias/Stack/Css.astro";
-import Js from "../icons/Tecnologias/Stack/Js.astro";
+import Java from "../icons/Tecnologias/Stack/Java.astro";
+import SpringBoot from "../icons/Tecnologias/Stack/SpringBoot.astro";
+import SpringSecurity from "../icons/Tecnologias/Stack/SpringSecurity.astro";
+import JpaHibernate from "../icons/Tecnologias/Stack/JpaHibernate.astro";
+import Mysql from "../icons/Tecnologias/Stack/Mysql.astro";
 import Social_icons from "./Social_icons.astro";
+import Tecnos_icons from "./Tecnos_icons.astro";
 import Github from "../icons/Social/Github.astro";
 import Link from "../icons/Social/Link.astro";
 
 const TAGS = {
-  Html: {
-    name: "Html",
-    class: "bg-[#963419] text-white",
-    icon: Html,
+  Java: {
+    name: "Java",
+    icon: Java,
   },
-  Css: {
-    name: "Css",
-    class: "bg-[#07436b] text-white",
-    icon: Css,
+  SpringBoot: {
+    name: "Spring Boot",
+    icon: SpringBoot,
   },
-  Js: {
-    name: "Js",
-    class: "bg-[#a39535] text-white",
-    icon: Js,
+  SpringSecurity: {
+    name: "Spring Security",
+    icon: SpringSecurity,
+  },
+  JpaHibernate: {
+    name: "JPA/Hibernate",
+    icon: JpaHibernate,
+  },
+  Mysql: {
+    name: "MySQL",
+    icon: Mysql,
   },
 };
 
@@ -31,7 +39,7 @@ const PROJECTS = [
     link: "#",
     github: "https://github.com/alanjaviermorinigo/",
     image: "/assets/images/projects/Fondo_Black_1920x1080.jpg",
-    tags: [TAGS.Html, TAGS.Css, TAGS.Js],
+    tags: [TAGS.Java, TAGS.SpringBoot, TAGS.SpringSecurity, TAGS.JpaHibernate, TAGS.Mysql],
   },
   {
     title: "Proyecto en construcción.",
@@ -39,7 +47,7 @@ const PROJECTS = [
     link: "#",
     github: "https://github.com/alanjaviermorinigo/",
     image: "/assets/images/projects/Fondo_Black_1920x1080.jpg",
-    tags: [TAGS.Html, TAGS.Css, TAGS.Js],
+    tags: [TAGS.Java, TAGS.SpringBoot, TAGS.SpringSecurity, TAGS.JpaHibernate, TAGS.Mysql],
   },
 ];
 ---
@@ -55,14 +63,13 @@ const PROJECTS = [
 
       <div class="w-full md:w-1/2 flex flex-col justify-center">
         <h3 class="text-2xl font-bold mb-2">{title}</h3>
-        <div class="flex flex-wrap mt-2">
-          <ul class="flex flex-row mb-2 gap-x-2">
+        <div class="mt-2">
+          <ul class="grid grid-cols-3 md:grid-cols-4 gap-4">
             {tags.map((tag) => (
-              <li>
-                <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
-                  <tag.icon class="size-4" />
-                  {tag.name}
-                </span>
+              <li class="flex justify-center">
+                <Tecnos_icons title={tag.name} size="sm">
+                  <tag.icon />
+                </Tecnos_icons>
               </li>
             ))}
           </ul>
