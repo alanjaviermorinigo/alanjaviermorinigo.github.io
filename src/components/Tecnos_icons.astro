@@ -1,23 +1,36 @@
 ---
+type Layout = "vertical" | "horizontal";
+type Size = "sm" | "md";
+
 const {
   title,
   layout = "vertical",
   size = "md",
-} = Astro.props;
+  fixedTextHeight = false,
+} = Astro.props as {
+  title: string;
+  layout?: Layout;
+  size?: Size;
+  fixedTextHeight?: boolean;
+};
 
-const layouts = {
+const layouts: Record<Layout, string> = {
   vertical: "flex-col text-center",
   horizontal: "flex-row text-left",
 };
 
-const sizes = {
+const sizes: Record<Size, {
+  container: string;
+  text: string;
+  icon: string;
+}> = {
   sm: {
-    container: "gap-1 w-16",
+    container: "gap-1 w-16 min-w-[64px]",
     text: "text-xs",
     icon: "w-8 h-8",
   },
   md: {
-    container: "gap-2 w-24",
+    container: "gap-2 w-24 min-w-[96px]",
     text: "text-xs",
     icon: "w-12 h-12",
   },
@@ -27,10 +40,10 @@ const sizes = {
 <span
   class={`flex items-center justify-center ${layouts[layout]} ${sizes[size].container} hover:scale-110 transition`}>
   <span class={`${sizes[size].icon} [&>svg]:w-full [&>svg]:h-full`}>
-    <slot />
+    <slot/>
   </span>
 
-  <span class={`${sizes[size].text} opacity-80 leading-tight`}>
+  <span class={`${sizes[size].text} opacity-80 leading-tight ${fixedTextHeight ? "min-h-[2.5em] flex items-center justify-center" : ""}`}>
     {title}
   </span>
 </span>
